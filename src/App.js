@@ -29,6 +29,7 @@ function App() {
       }),
       headers: {
         "Content-Type": "application/json; charset=UTF-8",
+        "Access-Control-Allow-Origin": "*"
       }
     })
       .then((res) => {
@@ -45,6 +46,28 @@ function App() {
       console.error("error", err)
     })
   }
+
+  const onDelete = async (id) => {
+    await fetch(`https://jsonplaceholder.typicode.com/users/${id}`, {
+      method: "DELETE",
+       headers: {
+        "Content-type": "application/json"
+      }
+
+    })
+    .then((res) => {
+      if (res.status !== 200) {
+        return
+      } else {
+        setUsers(users.filter(user => {
+           return user.id !== id;
+        }))    
+      }
+      })
+    .catch((err) => {
+      console.log("error delete", err)
+      })
+  }
 console.log(users)
   
   return (
@@ -54,7 +77,13 @@ console.log(users)
       <div>
         {
           users.map((user) => (
-            <User id={user.id} key={user.id} name={user.name} email={user.email}/>
+            <User
+              id={user.id}
+              key={user.id}
+              name={user.name}
+              email={user.email}
+              onDelete={onDelete}
+               />
           ))
         }
       </div>
