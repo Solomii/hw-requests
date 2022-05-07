@@ -1,16 +1,25 @@
-import React from 'react'
+import React from 'react';
+import { useNavigate } from "react-router-dom";
 
-const User = ({ id, name, email, onDelete }) => {
+const User = ({ id, name, email, onDelete,onEdit }) => {
+  const navigate = useNavigate ();
   
-  const handleDelete = () => {
-    onDelete(id);
+  const handleDelete = async () => {
+    await onDelete(id);
   }
+
+  const handleEdit = (id) => {
+    console.log(id, name, email);
+    navigate(`/EditUser/${id}`);
+    
+  }
+
   return (
     <div>
-      <p>{name}</p>
-      <p>{email}</p>
+      <span>{name}</span>
+      <span>{email}</span>
       <span>
-        <button>edit</button>
+        <button onClick={() => handleEdit(id)}>edit</button>
         <button onClick={handleDelete}>delete</button>
       </span>
     </div>
