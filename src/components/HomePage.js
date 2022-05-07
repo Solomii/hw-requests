@@ -47,7 +47,8 @@ function HomePage() {
     })
   }
 
-  const onEdit = async (id, name, email) => {
+  const onEdit = async (e,id, name, email) => {
+    e.preventDefault();
     console.log(id)
     await fetch(`https://jsonplaceholder.typicode.com/users/${id}`, {
       method: "PUT",
