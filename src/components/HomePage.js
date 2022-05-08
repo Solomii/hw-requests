@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Fragment } from "react";
+import React, { useEffect, useState } from "react";
 import AddUser from "./AddUser";
 import User from "./User";
 
@@ -47,16 +47,14 @@ function HomePage() {
     })
   }
 
-  const onEdit = async (e,id, name, email) => {
-    e.preventDefault();
+  const onEdit = async ( id,name, email) => {
     console.log(id)
     await fetch(`https://jsonplaceholder.typicode.com/users/${id}`, {
       method: "PUT",
       body: JSON.stringify({
-        id,
-        name,
-        email
-
+        id:id,
+        name:name,
+        email:email
       }),
       headers: {
         "Content-Type": "application/json; charset=UTF-8",
@@ -67,9 +65,7 @@ function HomePage() {
         return res.json()
       })
       .then((data) => {
-        setUsers(users.map((val) => {
-          return val.id === id ? { id: val.id, name: val.name, eamil: val.eamil } : val;
-        }))
+        console.log(data)
   })
       .catch((err) => {
       console.error("error", err)

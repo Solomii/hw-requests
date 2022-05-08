@@ -10,8 +10,8 @@ const User = ({ id, name, email, onDelete,onEdit }) => {
 
   const handleEdit = (id) => {
     console.log(id, name, email);
+    onEdit(id,name,email)
     navigate(`/EditUser/${id}`);
-    
   }
 
   return (

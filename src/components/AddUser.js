@@ -6,7 +6,6 @@ const AddUser = ({onAdd}) => {
     onAdd(e.target.name.value, e.target.email.value);
     e.target.name.value = "";
     e.target.email.value = "";
-
   }
   return (
     <div>
@@ -16,7 +15,6 @@ const AddUser = ({onAdd}) => {
         <input placeholder='email...' name="email" />
         <button onSubmit={handleOnSubmit}>Add</button>
       </form>
-
     </div>
   )
 }
