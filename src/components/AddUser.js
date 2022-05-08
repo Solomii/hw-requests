@@ -8,7 +8,7 @@ const AddUser = ({onAdd}) => {
     e.target.email.value = "";
   }
   return (
-    <div>
+    <div className='add__box__form'>
       <form onSubmit={handleOnSubmit}>
         <p>Add user</p>
         <input placeholder='name...' name="name" />

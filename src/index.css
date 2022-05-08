@@ -12,3 +12,32 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+button {
+  margin: 3px;
+}
+
+input {
+  margin: 3px;
+}
+
+span {
+  margin: 10px;
+}
+
+.add__box__form {
+  margin-bottom: 20px;
+}
+
+.user__box {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.user__box__button{
+  margin: 5px;
+}
+
+
